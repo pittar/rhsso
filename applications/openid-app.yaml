@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openid-app
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: openshift-config
+  source:
+    path: manifests/app/base
+    repoURL: https://github.com/masauve-gitops/rhsso
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false

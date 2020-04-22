@@ -1,0 +1,32 @@
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  name: cluster
+spec:
+  identityProviders:
+  - name: rhsso
+    mappingMethod: claim
+    type: OpenID
+    openID:
+      clientID: openshift
+      clientSecret: 
+        name: openid-client-secret-6kgwk
+      ca: 
+        name: openid-ca-s75fj
+      extraScopes: 
+      - email
+      - profile
+      extraAuthorizeParameters: 
+        include_granted_scopes: "true"
+      claims:
+        preferredUsername: 
+        - preferred_username
+        - email
+        name: 
+        - nickname
+        - given_name
+        - name
+        email: 
+        - custom_email_claim
+        - email
+      issuer: https://sso-mysso.apps.cl1.myocp.net/auth/realms/openshift
