@@ -6,7 +6,7 @@ spec:
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc
-  project: openshift-config
+  project: cluster-config
   source:
     path: manifests/app/base
     repoURL: https://github.com/masauve-gitops/rhsso
