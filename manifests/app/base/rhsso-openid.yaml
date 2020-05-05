@@ -10,9 +10,9 @@ spec:
     openID:
       clientID: openshift
       clientSecret: 
-        name: openid-client-secret-6kgwk
+        name: openid-client-secret
       ca: 
-        name: openid-ca-s75fj
+        name: openidcacrt
       extraScopes: 
       - email
       - profile
@@ -29,4 +29,4 @@ spec:
         email: 
         - custom_email_claim
         - email
-      issuer: https://sso-mysso.apps.cl1.myocp.net/auth/realms/openshift
+      issuer: https://sso-sso.apps.dev.myocp.net/auth/realms/openshift
