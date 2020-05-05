@@ -18,7 +18,13 @@ Manual entry in the UI, not yet automated
 Step #5 - create trusted CA for OpenID provider
 scripts/createca.sh
 
+
+
 Step #6 - create resources in ArgoCD
+update the following file or create an Overlay: manifests/app/base/rhsso-openid.yaml  
+issuer must reflect your domain.
+
+
 oc apply -k cluster/overlay/default
 
 Step #7 - Sychronize Argo application
