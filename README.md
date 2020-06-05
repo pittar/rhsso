@@ -3,38 +3,16 @@ First draft at installing RH-SSO as an authentication provider for OpenShift
 
 login to OpenShift using a cluster-admin user
 
-Step #1 - install RH-SSO
-```
-scripts/createrhsso.sh
-```
+You must first create an overlay specific to your domain:
+cp -R rhsso/overlays/myocp rhsso/overlays/MYDOMAIN
 
-Step #2 - create OpenShift realm in RH-SSO
-```
-scripts/createrealm.sh
-```
+update domain specific configuration in this directory
 
-Step #3 - create OpenShift client in RH-SSO
-```
-scripts/createclient.sh
-```
+The script will setup a user in RedHat SSO with OpenShift cluster-admin privileges. The user by default is ocpadmin/password. We encourage you to update the password in openshift-user.yaml before proceeding
 
+without ARGOCD:
 
-Step #4 - create desired users in RH-SSO   
-*Manual entry in the UI, not yet automated
+./setup.sh
 
-Step #5 - create trusted CA for OpenID provider
-```
-scripts/createca.sh
-```
+oc apply -k rhsso/overlays/MYDOMAIN
 
-
-Step #6 - create resources in ArgoCD
-
-*update the following file or create an Overlay: manifests/app/base/rhsso-openid.yaml  
-*issuer must reflect your domain
-```
-oc apply -k cluster/overlay/default
-```
-
-Step #7 - Sychronize Argo application
-*Currently set to manual sync
