@@ -11,3 +11,4 @@ resources:
 
 patchesStrategicMerge:
 - patch-target-namespace.yaml
+
