@@ -1,3 +1,0 @@
-- op: replace
-  path: /spec/client/redirectUris
-  value: ["https://oauth-openshift.apps.cluster-ba06.ba06.example.opentlc.com/oauth2callback/rhsso"]
