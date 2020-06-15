@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: rhsso-operator-app
+  name: rhsso-app
 spec:
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: rhsso-operator/overlays/default
+    path: rhsso/overlays/rhpds
     repoURL: https://github.com/pittar/rhsso
     targetRevision: master
   syncPolicy:

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: rhsso-operator-app
+  name: openid-app
 spec:
   destination:
     namespace: argocd
