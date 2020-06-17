@@ -30,3 +30,9 @@ spec:
         - custom_email_claim
         - email
       issuer: https://keycloak.example.com/auth/realms/openshift
+  - htpasswd:
+      fileData:
+        name: htpasswd-secret
+    mappingMethod: claim
+    name: htpasswd_provider
+    type: HTPasswd
